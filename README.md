@@ -69,6 +69,9 @@ Less efficient for long backup cycles
 
 
 
+
+
+
 Bash Scripts for Server Management
 
 These scripts help manage my server and API by monitoring, backing up, and updating.
@@ -111,16 +114,15 @@ V. Contents: API files + database dump
  Cron Jobs Configuration
 
 I. Edit crontab:
-```
+
 crontab -e
-```
+
 
 II. Add these entries:
-```
-0 * * * * /home/ubuntu/university-api/bash_scripts/health_check.sh
-0 2 * * * /home/ubuntu/university-api/bash_scripts/backup_api.sh
-0 4 * * * /home/ubuntu/university-api/bash_scripts/update_server.sh
-```
+/home/ubuntu/university-api/bash_scripts/health_check.sh
+/home/ubuntu/university-api/bash_scripts/backup_api.sh
+/home/ubuntu/university-api/bash_scripts/update_server.sh
+
 
 III. Save and exit
 
