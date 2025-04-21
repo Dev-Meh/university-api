@@ -78,27 +78,27 @@ These scripts help manage my server and API by monitoring, backing up, and updat
 
  I. health_check.sh
 This script monitors:
-- CPU usage (warns if above 80%)
-- Memory usage (warns if above 80%)
-- Disk space (warns if less than 10% available)
-- Web server status (apache2 or nginx)
-- API endpoints (/students and /subjects)
-- All results logged to /var/log/server_health.log
+i.  CPU usage (warns if above 80%)
+ii. Memory usage (warns if above 80%)
+iii. Disk space (warns if less than 10% available)
+iv. Web server status (apache2 or nginx)
+v. API endpoints (/students and /subjects)
+vi .All results logged to /var/log/server_health.log
 
  II. backup_api.sh
 This script handles backups:
-- Creates backups of API files from /var/www/html/api
-- Exports the database (api_database)
-- Compresses everything to tar.gz format
-- Removes backups older than 7 days
-- Logs all operations to /var/log/backup_api.log
+i. Creates backups of API files from /var/www/html/api
+ii. Exports the database (api_database)
+iii. Compresses everything to tar.gz format
+iv. Removes backups older than 7 days
+v. Logs all operations to /var/log/backup_api.log
 
  III. update_server.sh
 This script updates the server:
-- Updates Ubuntu packages (apt-get update & upgrade)
-- Pulls latest code from https://github.com/Dev-Meh/university-api.git
-- Restarts the web server when needed
-- Logs everything to /var/log/update_server.log
+i. Updates Ubuntu packages (apt-get update & upgrade)
+ii. Pulls latest code from https://github.com/Dev-Meh/university-api.git
+iii. Restarts the web server when needed
+iv. Logs everything to /var/log/update_server.log
 
  My Backup Scheme
 
