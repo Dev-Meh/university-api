@@ -70,65 +70,38 @@ Less efficient for long backup cycles
 
 
 
+logs
 
+==== Health Check: 2025-04-22 17:18:30 ====
+CPU Usage: 6%
+Memory Usage: 31%
+Disk Usage: 44%
+WARNING: Web server not running!
+WARNING: API Endpoint /students returned status 301
+WARNING: API Endpoint /subjects returned status 301
+Health check completed.
 
-Bash Scripts for Server Management
+2025-04-22 17:18:45 - Creating API backup at /home/ubuntu/backups/api_backup_2025-04-22.tar.gz
+2025-04-22 17:18:45 - Creating DB backup at /home/ubuntu/backups/db_backup_2025-04-22.sql
+2025-04-22 17:18:45 - Cleaning old backups...
+2025-04-22 17:19:03 - Updating Ubuntu packages...
+2025-04-22 17:19:11 - Ubuntu packages updated successfully
+2025-04-22 17:19:11 - Pulling latest changes from GitHub...
+2025-04-22 17:19:11 - GitHub repository updated
+2025-04-22 17:19:11 - Restarting web server...
 
-These scripts help manage my server and API by monitoring, backing up, and updating.
+===== /var/log/backup.log =====
+2025-04-23 02:00:03 - Starting backup process...
+2025-04-23 02:00:03 - Creating API backup at /home/ubuntu/backups/api_backup_2025-04-23.tar.gz
+2025-04-23 02:00:03 - API backup completed
+2025-04-23 02:00:03 - Creating DB backup at /home/ubuntu/backups/db_backup_2025-04-23.sql
+2025-04-23 02:00:04 - Database backup completed
+2025-04-23 02:00:04 - Cleaning old backups...
+2025-04-23 02:00:04 - Old backups cleaned up
 
-
- Scripts Overview
-
- I. health_check.sh
-This script monitors:
-i.  CPU usage (warns if above 80%)
-ii. Memory usage (warns if above 80%)
-iii. Disk space (warns if less than 10% available)
-iv. Web server status (apache2 or nginx)
-v. API endpoints (/students and /subjects)
-vi .All results logged to /var/log/server_health.log
-
- II. backup_api.sh
-This script handles backups:
-i. Creates backups of API files from /var/www/html/api
-ii. Exports the database (api_database)
-iii. Compresses everything to tar.gz format
-iv. Removes backups older than 7 days
-v. Logs all operations to /var/log/backup_api.log
-
- III. update_server.sh
-This script updates the server:
-i. Updates Ubuntu packages (apt-get update & upgrade)
-ii. Pulls latest code from https://github.com/Dev-Meh/university-api.git
-iii. Restarts the web server when needed
-iv. Logs everything to /var/log/update_server.log
-
- My Backup Scheme
-
-I. Daily backups at 2:00 AM using cron
-II. 7-day retention policy (older ones get deleted)
-III. Storage location: /home/ubuntu/backups
-IV. Format: tar.gz compressed archives
-V. Contents: API files + database dump
-
- Cron Jobs Configuration
-
-I. Edit crontab:
-
-crontab -e
-
-
-II. Add these entries:
-/home/ubuntu/university-api/bash_scripts/health_check.sh
-/home/ubuntu/university-api/bash_scripts/backup_api.sh
-/home/ubuntu/university-api/bash_scripts/update_server.sh
-
-
-III. Save and exit
-
- Troubleshooting Tips
-
-I. Check script permissions (should be executable)
-II. Review log files for errors
-III. Verify paths in scripts match your setup
-IV. Try running scripts with sudo if permission errors occur
+===== /var/log/update.log =====
+2025-04-23 01:59:34 - Updating Ubuntu packages...
+2025-04-23 01:59:40 - Ubuntu packages updated successfully
+2025-04-23 01:59:40 - Pulling latest changes from GitHub...
+2025-04-23 01:59:41 - GitHub repository updated
+2025-04-23 01:59:41 - Restarting web server...
